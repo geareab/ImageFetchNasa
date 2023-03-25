@@ -30,7 +30,13 @@ app.use((req, res, next) => {
   const error = new HttpError("Wrong URL", 404);
   throw error;
 });
-
+app.use((error, req, res, next) => {
+  if (res.headerSent) {
+    return next(error);
+  }
+  res.status(error.code || 500);
+  res.json({ message: error.message || "An unknown error occurred!" });
+});
 mongoose
   .connect(
     `mongodb+srv://hitenmittal:mongodbatlasnode@cluster0.ap5u3dr.mongodb.net/test?retryWrites=true&w=majority`
