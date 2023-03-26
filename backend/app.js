@@ -39,7 +39,7 @@ app.use((error, req, res, next) => {
 });
 mongoose
   .connect(
-    `mongodb+srv://hitenmittal:mongodbatlasnode@cluster0.ap5u3dr.mongodb.net/test?retryWrites=true&w=majority`
+    `mongodb+srv://hitenmittal:mongodbatlasnode@cluster0.ap5u3dr.mongodb.net/test?authSource=admin&retryWrites=true&w=majority`
   )
   .then(() => {
     app.listen(process.env.PORT || 80);
