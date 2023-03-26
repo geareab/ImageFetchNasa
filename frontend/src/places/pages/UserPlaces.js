@@ -26,6 +26,7 @@ const UserPlaces = () => {
         console.log(res.data);
       })
       .catch((error) => console.error(error));
+      // eslint-disable-next-line
   }, []);
 
   return (
