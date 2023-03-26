@@ -65,7 +65,7 @@ const Auth = () => {
     if (isLoginMode) {
       try {
         const responseData = await sendRequest(
-          "http://do.geareab.com/api/users/login",
+          "https://image-nasa-fetch-back.onrender.com/api/users/login",
           "POST",
           JSON.stringify({
             email: formState.inputs.email.value,
@@ -84,7 +84,7 @@ const Auth = () => {
         formData.append("name", formState.inputs.name.value);
         formData.append("password", formState.inputs.password.value);
         const responseData = await sendRequest(
-          "http://do.geareab.com/api/users/signup",
+          "https://image-nasa-fetch-back.onrender.com/api/users/signup",
           "POST",
           JSON.stringify({
             name: formState.inputs.name.value,
@@ -145,10 +145,9 @@ const Auth = () => {
         <Button inverse onClick={switchModeHandler}>
           SWITCH TO {isLoginMode ? "SIGNUP" : "LOGIN"}
         </Button>
-        <div className="center" style={{padding: "10px"}}>
-        <LoginPage></LoginPage>
+        <div className="center" style={{ padding: "10px" }}>
+          <LoginPage></LoginPage>
         </div>
-        
       </Card>
     </React.Fragment>
   );

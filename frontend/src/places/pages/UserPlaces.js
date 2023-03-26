@@ -15,7 +15,7 @@ const UserPlaces = () => {
     axios({
       method: "get",
       timeout: 5000,
-      url: "http://do.geareab.com/api/images/fetch/1",
+      url: "https://image-nasa-fetch-back.onrender.com/api/images/fetch/1",
       headers: { Authorization: `Bearer ${auth.token}` },
     })
       .then((res) => {
@@ -26,7 +26,7 @@ const UserPlaces = () => {
         console.log(res.data);
       })
       .catch((error) => console.error(error));
-      // eslint-disable-next-line
+    // eslint-disable-next-line
   }, []);
 
   return (
