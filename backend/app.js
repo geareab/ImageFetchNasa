@@ -42,7 +42,7 @@ mongoose
     `mongodb+srv://hitenmittal:mongodbatlasnode@cluster0.ap5u3dr.mongodb.net/test?retryWrites=true&w=majority`
   )
   .then(() => {
-    app.listen(80);
+    app.listen(process.env.PORT || 80);
     console.log("success");
   })
   .catch((err) => {
