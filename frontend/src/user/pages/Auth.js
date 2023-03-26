@@ -145,9 +145,6 @@ const Auth = () => {
         <Button inverse onClick={switchModeHandler}>
           SWITCH TO {isLoginMode ? "SIGNUP" : "LOGIN"}
         </Button>
-        <div>
-          <Button>Sign in With Google</Button>
-        </div>
       </Card>
     </React.Fragment>
   );

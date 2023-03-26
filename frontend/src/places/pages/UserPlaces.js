@@ -1,8 +1,14 @@
 import React, { useEffect, useState, useContext } from "react";
+
 import { AuthContext } from "../../shared/context/auth-context";
+const ulStyle = {
+  border: "0px",
+};
 const axios = require("axios");
 const UserPlaces = () => {
   const [imageUrl, setImageUrl] = useState("");
+  const [mediatype, setMediatype] = useState("0");
+
   const auth = useContext(AuthContext);
 
   useEffect(() => {
@@ -13,6 +19,9 @@ const UserPlaces = () => {
       headers: { Authorization: `Bearer ${auth.token}` },
     })
       .then((res) => {
+        if (res.data.media_type === "video") {
+          setMediatype(1);
+        }
         setImageUrl(res.data.url);
         console.log(res.data);
       })
@@ -20,8 +29,26 @@ const UserPlaces = () => {
   }, []);
 
   return (
-    <div className="center">
-      {imageUrl ? <img src={imageUrl} alt="Nasa" /> : <p>Loading...</p>}
+    <div>
+      {mediatype ? (
+        <div className="center">
+          {imageUrl ? (
+            <iframe
+              title="Nasa"
+              style={ulStyle}
+              src={imageUrl}
+              width="640"
+              height="360"
+            ></iframe>
+          ) : (
+            <p>Loading...</p>
+          )}
+        </div>
+      ) : (
+        <div className="center">
+          {imageUrl ? <img src="{imageUrl}" alt="Nasa" /> : <p>Loading...</p>}
+        </div>
+      )}
     </div>
   );
 };
