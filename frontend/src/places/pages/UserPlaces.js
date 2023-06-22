@@ -7,7 +7,7 @@ const ulStyle = {
 const axios = require("axios");
 const UserPlaces = () => {
   const [imageUrl, setImageUrl] = useState("");
-  const [mediatype, setMediatype] = useState("0");
+  const [mediatype, setMediatype] = useState(0);
 
   const auth = useContext(AuthContext);
 
@@ -31,9 +31,25 @@ const UserPlaces = () => {
 
   return (
     <div>
-      <div className="center">
-        {imageUrl ? <img src="{imageUrl}" alt="Nasa" /> : <p>Loading...</p>}
-      </div>
+      {mediatype ? (
+        <div className="center">
+          {imageUrl ? (
+            <iframe
+              title="Nasa"
+              style={ulStyle}
+              src={imageUrl}
+              width="640"
+              height="360"
+            ></iframe>
+          ) : (
+            <p>Loading...</p>
+          )}
+        </div>
+      ) : (
+        <div className="center">
+          {imageUrl ? <img src="{imageUrl}" alt="Nasa" /> : <p>Loading...</p>}
+        </div>
+      )}
     </div>
   );
 };
