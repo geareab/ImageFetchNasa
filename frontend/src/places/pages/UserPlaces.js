@@ -47,14 +47,7 @@ const UserPlaces = () => {
         </div>
       ) : (
         <div className="center">
-          {imageUrl ? (
-            <img
-              src="https://apod.nasa.gov/apod/image/2306/corona_aus1024.jpg"
-              alt="Nasa"
-            />
-          ) : (
-            <p>Loading...</p>
-          )}
+          {imageUrl ? <img src={imageUrl} alt="Nasa" /> : <p>Loading...</p>}
         </div>
       )}
     </div>
