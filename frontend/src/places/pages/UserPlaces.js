@@ -31,25 +31,9 @@ const UserPlaces = () => {
 
   return (
     <div>
-      {mediatype ? (
-        <div className="center">
-          {imageUrl ? (
-            <iframe
-              title="Nasa"
-              style={ulStyle}
-              src={imageUrl}
-              width="640"
-              height="360"
-            ></iframe>
-          ) : (
-            <p>Loading...</p>
-          )}
-        </div>
-      ) : (
-        <div className="center">
-          {imageUrl ? <img src="{imageUrl}" alt="Nasa" /> : <p>Loading...</p>}
-        </div>
-      )}
+      <div className="center">
+        {imageUrl ? <img src="{imageUrl}" alt="Nasa" /> : <p>Loading...</p>}
+      </div>
     </div>
   );
 };
